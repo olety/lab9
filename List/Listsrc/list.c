@@ -53,12 +53,6 @@ int deleteFromList(List **head, int where)
         return 0;
     List *temp,*prev;
     temp = *head;
-    if( where == 0)
-    {
-        *head = (*(head))->next;
-        free(temp);
-        return 1;
-    }
     int cnt = 0;
     while (where!=cnt && temp->next!=0)
     {
