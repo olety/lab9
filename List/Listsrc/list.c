@@ -46,7 +46,7 @@ int insertIntoList(List **head, int val, int where)
         int i = 0;
         temp = *head;
 
-        while(i!= where)
+        while(i!= where-1)
         {
             i++;
             temp = temp->next;
