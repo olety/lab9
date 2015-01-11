@@ -49,8 +49,6 @@ int insertIntoList(List **head, int val, int where)
 
 int deleteFromList(List **head, int where)
 {
-    if ( CountListElements(*head) < where )
-        return 0;
     List *temp,*prev;
     temp = *head;
     int cnt = 0;
