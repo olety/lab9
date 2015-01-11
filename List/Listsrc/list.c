@@ -64,17 +64,20 @@ int deleteFromList(List **head, int where)
     fprintf(stdout,"deleting from %dth place\n",where);
     if ( CountListElements(*head) < where || where < 0)
         return 0;
-    List *temp,*prev;
+    List *temp;
     temp = *head;
 
     if( where == 0)
     {
         *head = (*(head))->next;
         free(temp);
-        return 1;
+        return (1);
     }
+    else
+    {
+    List *prev;
     int i = 0;
-    while ( i!= where)
+    while ( i!= where )
     {
         i++;
         prev = temp;
@@ -83,6 +86,7 @@ int deleteFromList(List **head, int where)
     prev->next = temp->next;
     free(temp);
     return (1);
+    }
 }
 
 List * getElement(List *head, int pos)
