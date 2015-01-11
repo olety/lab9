@@ -22,7 +22,7 @@ int appendToList(List **head, int val)
 int insertIntoList(List **head, int val, int where)
 {
     fprintf(stdout,"inserting %d in %dth place\n",val,where);
-    if ( CountListElements(*head) < where || where < 0)
+    if ( where < 0 )
         return 0;
 
     List *elem=calloc(sizeof(List),1);
@@ -42,19 +42,19 @@ int insertIntoList(List **head, int val, int where)
     }
     else
     {
-        List *left,*right; //left and right may be not allocated because they'll point to existing list chains
+        List *temp; //left and right may be not allocated because they'll point to existing list chains
         int i = 0;
-        right = *head;
+        temp = *head;
 
         while(i!= where)
         {
             i++;
-            left = right;
-            right = right->next;
+            temp = temp->next;
         }
-
-        left->next = elem;
-        elem->next = right;
+        if ( temp == 0 )
+            return 0;
+        elem->next = temp->next;
+        temp->next = elem;
     }
     return (1);
 }
@@ -62,7 +62,7 @@ int insertIntoList(List **head, int val, int where)
 int deleteFromList(List **head, int where)
 {
     fprintf(stdout,"deleting from %dth place\n",where);
-    if ( CountListElements(*head) < where || where < 0)
+    if ( where < 0)
         return 0;
     List *temp;
     temp = *head;
@@ -77,12 +77,15 @@ int deleteFromList(List **head, int where)
     {
     List *prev;
     int i = 0;
-    while ( i!= where )
+    while ( i!= where && temp )
     {
         i++;
         prev = temp;
         temp = temp->next;
     }
+    if (temp == 0)
+        return (0);
+
     prev->next = temp->next;
     free(temp);
     return (1);
