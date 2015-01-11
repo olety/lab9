@@ -1,8 +1,8 @@
 A list is a dynamic data structure that starts with a list head and consists of any number of
 ments. The head points to the first element and each element point to its successor.
 
-
-The module has the following header file:
+#The module has the following header file:
+```
 #ifndef INTLIST_H
 #define INTLIST_H
 typedef struct IntList {
@@ -32,7 +32,9 @@ void printList(IntList * head, int elemPerLine);
 void testList();
 // testing the functions
 #endif
-Supplement the missing functions in the implementation file:
+```
+#Supplement the missing functions in the implementation file:
+```
 #include <stdio.h>
 #include <stdlib.h>
 #include "IntList.h"
@@ -120,5 +122,5 @@ void testList()
  p=getElement(head,0);
  printf("%d\n", p->val);
 }
-
+```
 Assigment written by Andrej Sieminski
