@@ -59,9 +59,10 @@ int deleteFromList(List **head, int where)
         free(temp);
         return 1;
     }
-    int i = 0;
-    for ( i ; i < where ; i++)
+    int cnt = 0;
+    while (where!=cnt && temp->next!=0)
     {
+        cnt++;
         prev = temp;
         temp = temp->next;
     }
