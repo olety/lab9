@@ -24,30 +24,38 @@ int insertIntoList(List **head, int val, int where)
     fprintf(stdout,"inserting %d in %dth place\n",val,where);
     if ( CountListElements(*head) < where || where < 0)
         return 0;
-    List *elem=calloc(sizeof(List),1),*left,*right; //left and right can be not alloced because they'll point to existing list chains
+
+    List *elem=calloc(sizeof(List),1);
     if ( elem == 0 )
         return(0);
+
     elem->val = val;
-    int i = 0;
-    right = *head;
 
-    if ( where == 0)
+    if ( where == 0 )
     {
-        if (appendToList(head,val) == 0)
+      /*  if (appendToList(head,val) == 0)
             return 0;
-        return 1;
+        return 1;*/
+        elem->next = *head;
+        *head = elem;
+        return (1);
     }
-
-    while(i!= where)
+    else
     {
-        i++;
-        left = right;
-        right = right->next;
+        List *left,*right; //left and right may be not allocated because they'll point to existing list chains
+        int i = 0;
+        right = *head;
+
+        while(i!= where)
+        {
+            i++;
+            left = right;
+            right = right->next;
+        }
+
+        left->next = elem;
+        elem->next = right;
     }
-
-    left->next = elem;
-    elem->next = right;
-
     return (1);
 }
 
