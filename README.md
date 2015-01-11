@@ -2,7 +2,7 @@ A list is a dynamic data structure that starts with a list head and consists of 
 ments. The head points to the first element and each element point to its successor.
 
 #The module has the following header file:
-```
+```c
 #ifndef INTLIST_H
 #define INTLIST_H
 typedef struct IntList {
@@ -34,7 +34,7 @@ void testList();
 #endif
 ```
 #Supplement the missing functions in the implementation file:
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include "IntList.h"
