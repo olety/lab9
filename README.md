@@ -24,7 +24,7 @@ int deleteFromList(IntList **head, int where);
 IntList * getElement(IntList *head, int pos);
 // returns the pointer to an element on the position pos, returns 0 if such an element does ton
 exist.
-int CountListElements(IntList *head, int val);
+int CountListElements(IntList *head);
 // counts the number of elements with the value equal to val
 void printList(IntList * head, int elemPerLine);
 // prints on standard output all list elements separated by a tabulation and semicolon ("\t"),
@@ -73,7 +73,7 @@ IntList * getElement(IntList *head, int pos)
  return(head);
  return(0);
 }
-int CountListElements(IntList *head, int val)
+int CountListElements(IntList *head)
 {
  int cnt=0;
  while (head->next!=0)
